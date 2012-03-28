@@ -19,7 +19,7 @@ if( ! function_exists( 'require_library' ) ) {
 		  $wp_libraries = array();
 	  }
 	  preg_match( '#/([-0-9a-zA-Z_]+)-([0-9.]+).php$#', $filepath, $match );
-	  list( $major, $minor, $bugfix ) = explode( '.', "{$match[2]}" );
+		list( $major, $minor, $bugfix ) = explode( '.', "{$match[2]}.0.0" );
 	  $version =
 		10000 * intval( $minor ) +
 		100 * intval( $minor ) +
