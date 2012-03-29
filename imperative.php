@@ -17,7 +17,7 @@ if( ! defined( 'IMPERATIVE_LIB' ) ) {
 	  global $wp_libraries;
 	  if ( ! is_array( $wp_libraries ) )
 		$wp_libraries = array();
-	  preg_match( '#/([-0-9a-zA-Z_]+)-([0-9.]+).php$#', $filepath, $match );
+	  preg_match( '#/([-0-9a-zA-Z_]+)-([0-9.]+)\.php$#', $filepath, $match );
 	  list( $major, $minor, $bugfix ) = explode( '.', "{$match[2]}.0.0" );
 	  $version =
 		10000 * intval( $major ) +
