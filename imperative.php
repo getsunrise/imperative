@@ -3,16 +3,16 @@
  * Library Registration and Loader for WordPress
  *
  * @package Imperative
- * @version 0.1
+ * @version 1.0
+ * @filesource https://github.com/getsunrise/imperative
  * @author Mike Schinkel <mike@newclarity.net>
  * @author Micah Wood <micah@newclarity.net>
  * @license http://opensource.org/licenses/gpl-2.0.php
  * @copyright Copyright (c) 2012, NewClarity LLC
- *
  */
-define( 'IMPERATIVE_LIB', true );
 
-if( ! function_exists( 'require_library' ) ) {
+if( ! defined( 'IMPERATIVE_LIB' ) ) {
+
 	function require_library( $filepath ) {
 	  global $wp_libraries;
 	  if ( ! is_array( $wp_libraries ) )
@@ -25,10 +25,9 @@ if( ! function_exists( 'require_library' ) ) {
 		intval( $bugfix );
 	  $wp_libraries[$match[1]][$version] = $filepath;
 	}
-}
 
-if( ! function_exists( 'load_libraries' ) ) {
 	add_action( 'after_setup_theme', 'load_libraries' );
+
 	function load_libraries() {
 	  global $wp_libraries;
 	  if ( is_array( $wp_libraries ) ) {
@@ -41,4 +40,7 @@ if( ! function_exists( 'load_libraries' ) ) {
 		}
 	  }
 	}
+
 }
+
+define( 'IMPERATIVE_LIB', true );
